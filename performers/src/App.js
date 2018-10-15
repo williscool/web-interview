@@ -1,9 +1,10 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import PerformerList from "./components/PerformerList";
+import "./App.css";
 
 const App = () => (
   <div className="App">
-    React App!
+    <PerformerList />
   </div>
 );
 

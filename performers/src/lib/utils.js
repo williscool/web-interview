@@ -1,16 +1,15 @@
 // https://egghead.io/lessons/react-create-a-pipe-function-to-enable-function-composition
+// https://stackoverflow.com/a/37826698/511710
+export const chunk = (inputArray, perChunk) => {
+  return inputArray.reduce((resultArray, item, index) => {
+    const chunkIndex = Math.floor(index / perChunk);
 
-/**
- * Preset the first n arguments to a function
- *
- * @param {*} fn input function
- * @param {*} args args to bind
- *
- * @returns {function} function with pre bound args
- */
-export const partial = (fn, ...args) => fn.bind(null, ...args);
+    if (!resultArray[chunkIndex]) {
+      resultArray[chunkIndex] = []; // start a new chunk
+    }
 
-// called _pipe in tutorial
-const compose = (f, g) => (...args) => g(f(...args));
+    resultArray[chunkIndex].push(item);
 
-export const pipe = (...fns) => fns.reduce(compose);
+    return resultArray;
+  }, []);
+};

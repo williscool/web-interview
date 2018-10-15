@@ -5,9 +5,9 @@ class Performer extends Component {
     const { id, name, hero_image_url, category_group } = this.props;
 
     return (
-      <li>
+      <span>
         {id} - {name} - {hero_image_url} - {category_group}
-      </li>
+      </span>
     );
   }
 }
